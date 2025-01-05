@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 //Create the scene
-const scene = new THREE.scene();
+const scene = new THREE.Scene();
 scene.background = new THREE.Color('#F0F0F0');
 
 //Add the camera
@@ -10,7 +10,7 @@ camera.position.z = 5;
 
 //Create and add a cube object
 const geometry = new THREE.BoxGeometry();
-const material  = new THREE.MeshLamberMaterial({color: '#468585', emissive: '#468585'})
+const material  = new THREE.MeshLambertMaterial({color: '#468585', emissive: '#468585'})
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
@@ -21,7 +21,9 @@ light.position.set(1,1,1);
 scene.add(light);
 
 //Setup the renderer
-const renderer = new WebGLRenderer();
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
 //Animate the scene
+renderer.render(scene, camera);
