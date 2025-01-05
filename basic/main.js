@@ -21,5 +21,7 @@ light.position.set(1,1,1);
 scene.add(light);
 
 //Setup the renderer
-
+const renderer = new WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 //Animate the scene
