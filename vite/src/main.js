@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {color} from "three/tsl";
+import {OrbitControls} from "three/addons/controls/OrbitControls.js";
 
 const canvas = document.getElementById('canvas');
 
@@ -34,6 +35,15 @@ const renderer = new THREE.WebGLRenderer({canvas});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.render(scene, camera);
+
+// Add orbitControls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.enableZoom = true;
+controls.enablePan = true;
+
+
 
 
 
